@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Lingo | Idiomas sin fronteras - Briyith Katherine Castro Barrera</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap');
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        body { 
+            background-color: #0a192f; 
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        /* Banner Promocional */
+        .bf-top-bar { 
+            background: linear-gradient(90deg, #ff6b00, #ff8800); 
+            color: #ffffff; 
+            text-align: center; 
+            padding: 10px 15px; 
+            font-size: 13px; 
+            font-weight: 900; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 10px;
+        }
+        .bf-pill { background: #ffffff; color: #ff6b00; padding: 3px 10px; border-radius: 20px; font-size: 11px; text-transform: uppercase; }
+
+        /* Header */
+        header { 
+            padding: 20px 40px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            max-width: 1300px; 
+            margin: 0 auto; 
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        .logo-infinity {
+            width: 46px;
+            height: 46px;
+            background: #0a192f;
+            border: 2px solid #ff6b00;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            color: #ff6b00;
+            box-shadow: 0 0 15px rgba(255,107,0,0.3);
+        }
+        .logo-text-brand {
+            font-size: 24px;
+            font-weight: 900;
+            color: #ffffff;
+            line-height: 1.1;
+        }
+        .logo-text-brand span { color: #00f2fe; }
+        .logo-sub {
+            font-size: 10px;
+            font-weight: 800;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+
+        .nav-menu { display: flex; gap: 28px; font-weight: 800; font-size: 14px; }
+        .nav-menu a { color: #cbd5e1; text-decoration: none; transition: all 0.2s; }
+        .nav-menu a:hover { color: #00f2fe; }
+
+        .btn-cyan {
+            background: #ff6b00;
+            color: #ffffff;
+            font-weight: 900;
+            padding: 12px 26px;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(255,107,0,0.3);
+            transition: all 0.2s;
+        }
+        .btn-cyan:hover { transform: translateY(-2px); box-shadow: 0 0 25px rgba(255,107,0,0.5); }
+
+        /* Hero */
+        .hero {
+            max-width: 1300px;
+            margin: 40px auto 60px auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 40px;
+            align-items: center;
+        }
+        @media (max-width: 950px) { .hero { grid-template-columns: 1fr; padding: 0 20px; } .nav-menu { display: none; } }
+
+        .hero-title { font-size: 52px; font-weight: 900; line-height: 1.1; margin-bottom: 20px; }
+        .hero-title span { color: #00f2fe; }
+        .hero-subtitle { font-size: 17px; color: #94a3b8; line-height: 1.6; margin-bottom: 30px; font-weight: 600; }
+
+        /* Card Fundadora */
+        .card-pop-3d {
+            background: #112240;
+            color: #ffffff;
+            border-radius: 28px;
+            padding: 32px;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+        .badge-founder { background: #ff6b00; color: #ffffff; padding: 6px 14px; border-radius: 20px; font-weight: 900; font-size: 12px; display: inline-block; margin-bottom: 15px; }
+        .founder-title { font-size: 22px; font-weight: 900; margin-bottom: 4px; }
+        .founder-sub { font-size: 13px; color: #00f2fe; font-weight: 700; margin-bottom: 18px; }
+
+        /* Galería */
+        .gallery-section { max-width: 1300px; margin: 40px auto 60px auto; padding: 0 40px; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .gallery-card { background: #112240; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); }
+        .gallery-img { width: 100%; height: 200px; object-fit: cover; }
+        .gallery-caption { padding: 15px; font-size: 13px; font-weight: 700; color: #cbd5e1; text-align: center; }
+
+        /* Beneficios */
+        .benefits-section { max-width: 1300px; margin: 60px auto; padding: 0 40px; }
+        .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+        .benefit-card { background: #112240; border: 1px solid rgba(255,255,255,0.08); padding: 24px; border-radius: 20px; text-align: center; }
+        .benefit-icon { font-size: 36px; margin-bottom: 12px; display: block; }
+        .benefit-card h4 { font-size: 17px; font-weight: 800; color: #ffffff; margin-bottom: 8px; }
+        .benefit-card p { font-size: 13px; color: #94a3b8; line-height: 1.5; }
+
+        /* Headers */
+        .sec-header { text-align: center; margin-bottom: 40px; }
+        .sec-header h2 { font-size: 36px; font-weight: 900; }
+        .sec-header p { font-size: 15px; color: #94a3b8; margin-top: 6px; }
+
+        /* Cursos DETALLADOS */
+        .courses-grid { max-width: 1300px; margin: 0 auto 80px auto; padding: 0 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .course-card-white {
+            background: #112240;
+            color: #ffffff;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.08);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+        .course-card-white.bf-highlight { border: 2px solid #ff6b00; box-shadow: 0 0 25px rgba(255,107,0,0.3); }
+        .bf-card-badge { position: absolute; top: 15px; right: 15px; background: #ff6b00; color: #fff; font-weight: 900; font-size: 11px; padding: 6px 12px; border-radius: 20px; }
+        .course-card-img { width: 100%; height: 180px; object-fit: cover; }
+        .course-card-body { padding: 22px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .course-card-title { font-size: 20px; font-weight: 900; margin-bottom: 8px; }
+        .course-card-desc { font-size: 13px; color: #cbd5e1; line-height: 1.5; margin-bottom: 15px; }
+        .course-list { font-size: 12px; color: #94a3b8; margin-bottom: 20px; padding-left: 18px; line-height: 1.6; }
+        .price-tag { font-size: 24px; font-weight: 900; color: #00f2fe; margin-bottom: 15px; }
+
+        /* Reseñas */
+        .reviews-grid { max-width: 1300px; margin: 0 auto 80px auto; padding: 0 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .review-card-white {
+            background: #112240;
+            color: #ffffff;
+            padding: 25px;
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.08);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .review-stars { color: #ff9800; font-weight: 900; margin-bottom: 10px; font-size: 15px; }
+        .review-quote { font-size: 13px; color: #cbd5e1; font-style: italic; margin-bottom: 18px; line-height: 1.5; }
+        .review-user-info { display: flex; align-items: center; gap: 12px; }
+        .review-avatar { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid #00f2fe; }
+
+        /* Bot Flotante LingoBot */
+        .bot-trigger-btn {
+            position: fixed; bottom: 30px; right: 30px; background: #00f2fe; color: #0a192f; width: 66px; height: 66px; border-radius: 50%; border: none; font-size: 32px; cursor: pointer; box-shadow: 0 10px 25px rgba(0,242,254,0.4); z-index: 100; display: flex; align-items: center; justify-content: center;
+        }
+        .bot-window {
+            position: fixed; bottom: 110px; right: 30px; width: 370px; background: #112240; color: #ffffff; border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,0.8); display: none; flex-direction: column; overflow: hidden; z-index: 100; border: 1px solid rgba(255,255,255,0.15);
+        }
+        .bot-header-bar { background: #0a192f; color: #ffffff; padding: 16px 20px; font-weight: 900; font-size: 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .bot-messages-area { padding: 18px; height: 320px; overflow-y: auto; background: #0a192f; display: flex; flex-direction: column; gap: 12px; font-size: 13px; }
+        .msg-bubble-bot { background: #112240; color: #ffffff; padding: 12px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.08); line-height: 1.4; }
+        .btn-bot-opt { background: #ff6b00; color: #fff; border: none; padding: 8px 12px; border-radius: 10px; font-size: 12px; font-weight: 800; cursor: pointer; text-align: left; margin-top: 6px; width: 100%; transition: opacity 0.2s; }
+        .btn-bot-opt:hover { opacity: 0.9; }
+
+        /* Modal */
+        .modal-overlay { position: fixed; inset: 0; background: rgba(10,25,47,0.85); backdrop-filter: blur(6px); display: none; align-items: center; justify-content: center; z-index: 200; padding: 20px; }
+        .modal-body-card { background: #112240; color: #fff; padding: 35px; border-radius: 28px; max-width: 480px; width: 100%; position: relative; border: 1px solid rgba(255,255,255,0.1); }
+
+        footer { text-align: center; padding: 40px 20px; font-size: 13px; color: #94a3b8; border-top: 1px solid rgba(255,255,255,0.08); }
+    </style>
+</head>
+<body>
+
+    <div class="bf-top-bar">
+        <span class="bf-pill">MATRÍCULAS ABIERTAS ⚡</span> PROGRAMAS DE IDIOMAS DE ALTO IMPACTO EN COLOMBIA
+    </div>
+
+    <header>
+        <a href="#" class="logo-container">
+            <div class="logo-infinity">∞</div>
+            <div>
+                <div class="logo-text-brand">GLOBAL <span>LINGO</span></div>
+                <div class="logo-sub">Idiomas sin fronteras | Por Briyith Katherine Castro Barrera</div>
+            </div>
+        </a>
+        <nav class="nav-menu">
+            <a href="#galeria">Experiencia</a>
+            <a href="#beneficios">Beneficios</a>
+            <a href="#cursos">Cursos</a>
+            <a href="#reseñas">Reseñas</a>
+        </nav>
+        <button class="btn-cyan" onclick="openBotAndStartLangSelect()">Hacer Minitest de Nivel 🌐</button>
+    </header>
+
+    <section class="hero">
+        <div>
+            <h1 class="hero-title">El idioma que necesitas, <span>sin barreras ni fronteras.</span></h1>
+            <p class="hero-subtitle">Aprende Inglés, Francés, Alemán e Italiano con metodologías interactivas, profesores nativos certificados e Inteligencia Artificial guiada.</p>
+            <button class="btn-cyan" onclick="openBotAndStartLangSelect()" style="padding: 16px 36px; font-size: 16px;">📝 Minitest de Nivel Multilingüe en LingoBot</button>
+        </div>
+
+        <div class="card-pop-3d" id="fundadora">
+            <span class="badge-founder">🎓 Dirección General</span>
+            <h3 class="founder-title">Briyith Katherine Castro Barrera</h3>
+            <p class="founder-sub">Fundadora & Estudiante de Ing. de Software (1er Semestre)</p>
+            <p style="font-size:13px; color:#cbd5e1; line-height:1.5;">"Desarrollamos esta plataforma para romper barreras idiomáticas mediante educación flexible, económica y respaldada por tecnología de vanguardia."</p>
+        </div>
+    </section>
+
+    <!-- Galería -->
+    <section class="gallery-section" id="galeria">
+        <div class="sec-header">
+            <h2>Metodología e Inmersión Real</h2>
+            <p>Clases dinámicas e interactivas desde cualquier lugar.</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-card">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80" class="gallery-img" alt="Estudiantes en clase">
+                <div class="gallery-caption">Aulas virtuales en vivo con grupos reducidos</div>
+            </div>
+            <div class="gallery-card">
+                <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=600&q=80" class="gallery-img" alt="Práctica en laptop">
+                <div class="gallery-caption">Práctica flexible 24/7 en cualquier plataforma</div>
+            </div>
+            <div class="gallery-card">
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80" class="gallery-img" alt="Tutoría IA">
+                <div class="gallery-caption">Retroalimentación con Inteligencia Artificial</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beneficios -->
+    <section class="benefits-section" id="beneficios">
+        <div class="sec-header">
+            <h2>¿Por qué estudiar en Global Lingo?</h2>
+            <p>Conoce las ventajas competitivas de nuestra metodología.</p>
+        </div>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <span class="benefit-icon">👨‍🏫</span>
+                <h4>Profesores Nativos</h4>
+                <p>Docentes certificados internacionalmente para perfeccionar tu pronunciación y fluidez real.</p>
+            </div>
+            <div class="benefit-card">
+                <span class="benefit-icon">🤖</span>
+                <h4>Apoyo de IA 24/7</h4>
+                <p>Entrena tu vocabulario y gramática a cualquier hora con nuestro tutor inteligente LingoBot.</p>
+            </div>
+            <div class="benefit-card">
+                <span class="benefit-icon">👥</span>
+                <h4>Grupos Reducidos</h4>
+                <p>Clases en vivo con máximo 8 alumnos para garantizar atención personalizada.</p>
+            </div>
+            <div class="benefit-card">
+                <span class="benefit-icon">🏆</span>
+                <h4>Certificación Oficial</h4>
+                <p>Obtén un certificado digital respaldado al completar cada nivel del marco europeo (MCER).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cursos DETALLADOS -->
+    <section class="sec-header" id="cursos">
+        <h2>Información Detallada de Cursos y Precios</h2>
+        <p>Valores mensuales expresados en Pesos Colombianos (COP).</p>
+    </section>
+
+    <div class="courses-grid">
+        <!-- 1. Inglés Profesional -->
+        <div class="course-card-white bf-highlight">
+            <span class="bf-card-badge">MÁS POPULAR</span>
+            <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=600&q=80" class="course-card-img" alt="Inglés Profesional">
+            <div class="course-card-body">
+                <div>
+                    <div class="course-card-title">Inglés Profesional</div>
+                    <p class="course-card-desc">Programa integral desde nivel básico (A1) hasta conversación fluida de negocios (C1).</p>
+                    <ul class="course-list">
+                        <li>Simulación de entrevistas de trabajo en inglés.</li>
+                        <li>Inglés técnico para software, negocios y tecnología.</li>
+                        <li>Preparación para pruebas internacionales (IELTS/TOEFL).</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="price-tag">$500.000 COP / mes</div>
+                    <button class="btn-cyan" style="width:100%; border-radius:12px;" onclick="openEnroll('Inglés Profesional ($500.000 COP)')">Inscribirme</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Francés Fluido -->
+        <div class="course-card-white">
+            <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=600&q=80" class="course-card-img" alt="Francés Fluido">
+            <div class="course-card-body">
+                <div>
+                    <div class="course-card-title">Francés Fluido</div>
+                    <p class="course-card-desc">Curso dinámico orientado al habla cotidiana, inmersión cultural y viajes.</p>
+                    <ul class="course-list">
+                        <li>Dominio de la pronunciación y fonética francesa.</li>
+                        <li>Vocabulario de negocios, diplomacia y turismo.</li>
+                        <li>Preparación intensiva para exámenes DELF A1-B2.</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="price-tag">$300.000 COP / mes</div>
+                    <button class="btn-cyan" style="width:100%; border-radius:12px;" onclick="openEnroll('Francés Fluido ($300.000 COP)')">Inscribirme</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Alemán Práctico -->
+        <div class="course-card-white">
+            <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=600&q=80" class="course-card-img" alt="Alemán Práctico">
+            <div class="course-card-body">
+                <div>
+                    <div class="course-card-title">Alemán Práctico</div>
+                    <p class="course-card-desc">Estructura acelerada enfocada en oportunidades en Europa y trabajo remoto.</p>
+                    <ul class="course-list">
+                        <li>Comprensión gramatical y diálogo fluido.</li>
+                        <li>Enfoque para ingenierías, becas y posgrados.</li>
+                        <li>Preparación para certificación del Goethe-Institut.</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="price-tag">$450.000 COP / mes</div>
+                    <button class="btn-cyan" style="width:100%; border-radius:12px;" onclick="openEnroll('Alemán Práctico ($450.000 COP)')">Inscribirme</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Italiano Natural -->
+        <div class="course-card-white">
+            <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=600&q=80" class="course-card-img" alt="Italiano Natural">
+            <div class="course-card-body">
+                <div>
+                    <div class="course-card-title">Italiano Natural</div>
+                    <p class="course-card-desc">Desarrollo comunicativo rápido a través de la cultura, arte y conversación.</p>
+                    <ul class="course-list">
+                        <li>Entrenamiento de fluidez auditiva y oral rápida.</li>
+                        <li>Modismos cotidianos y comunicación natural.</li>
+                        <li>Preparación para certificaciones CILS/CELI.</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="price-tag">$400.000 COP / mes</div>
+                    <button class="btn-cyan" style="width:100%; border-radius:12px;" onclick="openEnroll('Italiano Natural ($400.000 COP)')">Inscribirme</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reseñas -->
+    <section class="sec-header" id="reseñas">
+        <h2>Opiniones de Nuestros Alumnos</h2>
+        <p>Reseñas verificadas de estudiantes activos.</p>
+    </section>
+
+    <div class="reviews-grid">
+        <div class="review-card-white">
+            <div class="review-stars">⭐⭐⭐⭐⭐ 5.0 / 5.0</div>
+            <p class="review-quote">"El curso de Inglés vale totalmente la pena. La atención de los profesores nativos y el acompañamiento constante marcan la diferencia."</p>
+            <div class="review-user-info">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" class="review-avatar" alt="Camila">
+                <div>
+                    <strong style="font-size:14px; display:block;">Camila Morales</strong>
+                    <span style="font-size:11px; color:#94a3b8;">Estudiante de Inglés</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="review-card-white">
+            <div class="review-stars">⭐⭐⭐⭐⭐ 5.0 / 5.0</div>
+            <p class="review-quote">"Hice el minitest de Francés en LingoBot y me asignó mi nivel B1 con precisión. La plataforma es excelente."</p>
+            <div class="review-user-info">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" class="review-avatar" alt="Mateo">
+                <div>
+                    <strong style="font-size:14px; display:block;">Mateo Ríos</strong>
+                    <span style="font-size:11px; color:#94a3b8;">Ingeniero de Sistemas</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="review-card-white">
+            <div class="review-stars">⭐⭐⭐⭐⭐ 4.9 / 5.0</div>
+            <p class="review-quote">"Excelente inversión. En pocos meses en el curso de Alemán ya sostengo conversaciones profesionales reales."</p>
+            <div class="review-user-info">
+                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=200&q=80" class="review-avatar" alt="Valentina">
+                <div>
+                    <strong style="font-size:14px; display:block;">Valentina Gómez</strong>
+                    <span style="font-size:11px; color:#94a3b8;">Estudiante de Alemán</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bot Flotante LingoBot -->
+    <button class="bot-trigger-btn" onclick="toggleBot()">🌐</button>
+    <div class="bot-window" id="botWindow">
+        <div class="bot-header-bar">
+            <span>🌐 LingoBot (Asistente e IA)</span>
+            <button onclick="toggleBot()" style="background:none; border:none; color:#fff; cursor:pointer; font-weight:bold;">✕</button>
+        </div>
+        <div class="bot-messages-area" id="botMessagesArea"></div>
+    </div>
+
+    <!-- Modal Inscripción -->
+    <div class="modal-overlay" id="enrollModal">
+        <div class="modal-body-card">
+            <button style="position:absolute; top:20px; right:20px; border:none; background:rgba(255,255,255,0.1); color:#fff; width:30px; height:30px; border-radius:50%; font-weight:bold; cursor:pointer;" onclick="closeModal()">✕</button>
+            <h3 style="font-size:22px; font-weight:900; margin-bottom:6px;">Matrícula de Curso</h3>
+            <p style="font-size:13px; color:#00f2fe; margin-bottom:20px;" id="modalCourseTitle">Curso</p>
+            <form onsubmit="handleEnrollSubmit(event)">
+                <input type="text" required placeholder="Tu nombre completo" style="width:100%; padding:12px; background:#0a192f; border:1px solid rgba(255,255,255,0.1); border-radius:10px; margin-bottom:12px; color:#fff;">
+                <input type="email" required placeholder="Correo electrónico (Gmail)" style="width:100%; padding:12px; background:#0a192f; border:1px solid rgba(255,255,255,0.1); border-radius:10px; margin-bottom:12px; color:#fff;">
+                <button type="submit" class="btn-cyan" style="width:100%; border-radius:10px; padding:14px;">Confirmar e Inscribirme</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>GLOBAL LINGO — Idiomas sin fronteras</strong></p>
+        <p>Fundado por Briyith Katherine Castro Barrera | Ingeniería de Software © 2026</p>
+    </footer>
+
+    <script>
+        let currentLang = "";
+        let currentScore = 0;
+
+        /* BANCO DE PREGUNTAS POR IDIOMA */
+        const testQuestions = {
+            ingles: [
+                { q: 'Completa: "She ____ to English class every Monday."', opts: ['a) go', 'b) goes', 'c) going'], correct: 1 },
+                { q: '¿Cuál es la forma correcta para decir la edad?', opts: ['a) I have 22 years old.', 'b) I am 22 years old.'], correct: 1 },
+                { q: 'Completa: "I was tired, ____ I completed my homework."', opts: ['a) but', 'b) because'], correct: 0 }
+            ],
+            frances: [
+                { q: 'Completa: "Je ____ étudiant à l\'université."', opts: ['a) suis', 'b) es', 'c) est'], correct: 0 },
+                { q: '¿Cómo se dice "Gracias por favor" en francés?', opts: ['a) Merci s\'il vous plaît', 'b) Bonjour pardon'], correct: 0 },
+                { q: 'Completa: "Nous ____ une grande maison."', opts: ['a) avons', 'b) avez'], correct: 0 }
+            ],
+            aleman: [
+                { q: 'Completa: "Ich ____ Deutsch lernen."', opts: ['a) möchte', 'b) möchtest', 'c) möchten'], correct: 0 },
+                { q: '¿Cuál es el artículo para la palabra "Haus" (casa)?', opts: ['a) Der', 'b) Das', 'c) Die'], correct: 1 },
+                { q: 'Completa: "Wie ____ du?"', opts: ['a) heißt', 'b) heißen'], correct: 0 }
+            ],
+            italiano: [
+                { q: 'Completa: "Io ____ italiano molto bene."', opts: ['a) parlo', 'b) parli', 'c) parla'], correct: 0 },
+                { q: '¿Cómo se dice "Buenos días" en italiano?', opts: ['a) Buongiorno', 'b) Buonasera'], correct: 0 },
+                { q: 'Completa: "Noi ____ a Roma."', opts: ['a) viviamo', 'b) vivono'], correct: 0 }
+            ]
+        };
+
+        function renderMainBotMenu() {
+            const area = document.getElementById('botMessagesArea');
+            area.innerHTML = `
+                <div class="msg-bubble-bot">
+                    ¡Hola! Soy <strong>LingoBot 🌐</strong>. ¿En qué idioma deseas realizar tu minitest o consultar información hoy?
+                    <button class="btn-bot-opt" onclick="startLanguageSelectTest()">📝 Realizar Minitest de Nivel (4 Idiomas)</button>
+                    <button class="btn-bot-opt" onclick="botSelect('info')">📚 Ver Cursos Detallados y Precios</button>
+                    <button class="btn-bot-opt" onclick="botSelect('beneficios')">✨ Ver Beneficios de la Plataforma</button>
+                    <button class="btn-bot-opt" onclick="botSelect('contacto')">👤 Contactar a Briyith Katherine</button>
+                </div>
+            `;
+            area.scrollTop = area.scrollHeight;
+        }
+
+        function toggleBot() {
+            const win = document.getElementById('botWindow');
+            if (win.style.display === 'flex') {
+                win.style.display = 'none';
+            } else {
+                win.style.display = 'flex';
+                if (!document.getElementById('botMessagesArea').innerHTML.trim()) {
+                    renderMainBotMenu();
+                }
+            }
+        }
+
+        function openBotAndStartLangSelect() {
+            const win = document.getElementById('botWindow');
+            win.style.display = 'flex';
+            startLanguageSelectTest();
+        }
+
+        /* SELECCIÓN DE IDIOMA PARA EL TEST */
+        function startLanguageSelectTest() {
+            const area = document.getElementById('botMessagesArea');
+            area.innerHTML = `
+                <div class="msg-bubble-bot">
+                    🌍 <strong>Selecciona el idioma para evaluar tu nivel:</strong>
+                    <button class="btn-bot-opt" onclick="initTestForLanguage('ingles')">🇬🇧 Inglés Profesional</button>
+                    <button class="btn-bot-opt" onclick="initTestForLanguage('frances')">🇫🇷 Francés Fluido</button>
+                    <button class="btn-bot-opt" onclick="initTestForLanguage('aleman')">🇩🇪 Alemán Práctico</button>
+                    <button class="btn-bot-opt" onclick="initTestForLanguage('italiano')">🇮🇹 Italiano Natural</button>
+                </div>
+            `;
+            area.scrollTop = area.scrollHeight;
+        }
+
+        function initTestForLanguage(lang) {
+            currentLang = lang;
+            currentScore = 0;
+            renderQuestion(0);
+        }
+
+        function renderQuestion(qIndex) {
+            const area = document.getElementById('botMessagesArea');
+            const questions = testQuestions[currentLang];
+            const item = questions[qIndex];
+
+            let optionsHTML = "";
+            item.opts.forEach((optText, optIdx) => {
+                optionsHTML += `<button class="btn-bot-opt" onclick="handleMultilingualAnswer(${qIndex}, ${optIdx})">${optText}</button>`;
+            });
+
+            const langNames = { ingles: 'Inglés', frances: 'Francés', aleman: 'Alemán', italiano: 'Italiano' };
+
+            area.innerHTML = `
+                <div class="msg-bubble-bot">
+                    <strong>📝 Minitest de ${langNames[currentLang]} (${qIndex + 1} de 3)</strong><br><br>
+                    ${item.q}<br><br>
+                    ${optionsHTML}
+                </div>
+            `;
+            area.scrollTop = area.scrollHeight;
+        }
+
+        function handleMultilingualAnswer(qIndex, selectedOptIdx) {
+            const questions = testQuestions[currentLang];
+            if (selectedOptIdx === questions[qIndex].correct) {
+                currentScore++;
+            }
+
+            if (qIndex + 1 < questions.length) {
+                renderQuestion(qIndex + 1);
+            } else {
+                showFinalMultilingualResult();
+            }
+        }
+
+        function showFinalMultilingualResult() {
+            const area = document.getElementById('botMessagesArea');
+            const langNames = { ingles: 'Inglés Profesional', frances: 'Francés Fluido', aleman: 'Alemán Práctico', italiano: 'Italiano Natural' };
+            
+            let assignedLevel = "";
+            let recommendation = "";
+
+            if (currentScore === 3) {
+                assignedLevel = "Nivel B2 (Avanzado / Fluidez Fluida)";
+                recommendation = `¡Excelente puntuación! Tienes un dominio sólido. Te recomendamos inscribirte al curso de ${langNames[currentLang]} para perfeccionar tu perfil internacional.`;
+            } else if (currentScore === 2) {
+                assignedLevel = "Nivel B1 (Intermedio)";
+                recommendation = `Tienes muy buena base. Con nuestro curso de ${langNames[currentLang]} consolidarás la fluidez conversacional.`;
+            } else {
+                assignedLevel = "Nivel A1 - A2 (Principiante / Elemental)";
+                recommendation = `¡Gran inicio! Te recomendamos empezar desde el módulo fundamental de ${langNames[currentLang]} con nuestros profesores nativos.`;
+            }
+
+            area.innerHTML = `
+                <div class="msg-bubble-bot">
+                    🎉 <strong>¡Minitest Finalizado! (${langNames[currentLang]})</strong><br><br>
+                    Puntaje obtenido: <strong>${currentScore} de 3 correctas.</strong><br>
+                    Nivel Estimado: <strong>${assignedLevel}</strong><br><br>
+                    ${recommendation}<br><br>
+                    <button class="btn-bot-opt" onclick="openEnroll('${langNames[currentLang]}')">Inscribirme a este Curso</button>
+                    <button class="btn-bot-opt" onclick="renderMainBotMenu()">Volver al menú principal</button>
+                </div>
+            `;
+            area.scrollTop = area.scrollHeight;
+        }
+
+        function botSelect(opt) {
+            const area = document.getElementById('botMessagesArea');
+            if(opt === 'info') {
+                area.innerHTML += `
+                    <div class="msg-bubble-bot">
+                        📚 <strong>Cursos y Tarifas Mensuales (COP):</strong><br><br>
+                        • <strong>Inglés Profesional:</strong> $500.000 COP/mes<br>
+                        • <strong>Francés Fluido:</strong> $300.000 COP/mes<br>
+                        • <strong>Alemán Práctico:</strong> $450.000 COP/mes<br>
+                        • <strong>Italiano Natural:</strong> $400.000 COP/mes<br><br>
+                        <em>Todos incluyen profesores nativos, tutoría con IA y certificado oficial.</em>
+                        <button class="btn-bot-opt" onclick="renderMainBotMenu()">Volver al Menú</button>
+                    </div>
+                `;
+            } else if(opt === 'beneficios') {
+                area.innerHTML += `
+                    <div class="msg-bubble-bot">
+                        ✨ <strong>Ventajas Exclusivas:</strong><br>
+                        • Profesores nativos certificados.<br>
+                        • Clases reducidas de máximo 8 alumnos.<br>
+                        • Tutoría con Inteligencia Artificial 24/7.<br>
+                        • Certificados digitales del Marco Europeo.
+                        <button class="btn-bot-opt" onclick="renderMainBotMenu()">Volver al Menú</button>
+                    </div>
+                `;
+            } else if(opt === 'contacto') {
+                area.innerHTML += `
+                    <div class="msg-bubble-bot">
+                        👤 <strong>Dirección de Plataforma:</strong> Briyith Katherine Castro Barrera<br>
+                        🎓 Estudiante de Ingeniería de Software (1er Semestre)<br>
+                        📍 Pasto, Nariño, Colombia.
+                        <button class="btn-bot-opt" onclick="renderMainBotMenu()">Volver al Menú</button>
+                    </div>
+                `;
+            }
+            area.scrollTop = area.scrollHeight;
+        }
+
+        function openEnroll(c) {
+            document.getElementById('modalCourseTitle').innerText = c;
+            document.getElementById('enrollModal').style.display = 'flex';
+        }
+        function closeModal() { document.getElementById('enrollModal').style.display = 'none'; }
+        function handleEnrollSubmit(e) {
+            e.preventDefault();
+            alert('¡Inscripción recibida correctamente! Te contactaremos con los datos del curso.');
+            closeModal();
+        }
+    </script>
+</body>
+</html>
